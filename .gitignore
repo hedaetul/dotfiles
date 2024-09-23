@@ -1,0 +1,25 @@
+# Ignore temporary files
+*.tmp
+*.temp
+*.log
+*.cache
+
+# Alacritty
+# Ignore the Alacritty cache if it exists
+alacritty/*/*.cache
+
+# MPV
+# Ignore MPV's cache files
+mpv/*.cache
+
+# Neovim
+# Ignore Neovim's swap files
+nvim/swap/  # adjust if you have a specific directory for swap files
+nvim/undo/  # adjust if you have a specific directory for undo files
+nvim/backup/  # adjust if you have a specific directory for backup files
+
+# Fish
+# Ignore Fish history and other temporary files
+fish/history
+fish/fishd.sock
+fish/*.fish~  # temporary files created by editors

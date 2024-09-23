@@ -1,0 +1,93 @@
+# Alacritty Configuration File
+# Import the theme
+import = [
+    "~/.config/alacritty/themes/themes/hedaetul.toml"
+]
+
+# Window settings
+[window]
+dimensions = { columns = 90, lines = 24 }
+padding = { x = 10, y = 10 }
+opacity = 0.95
+startup_mode = "Windowed"
+
+
+# Font settings
+[font]
+normal = { family = "Victor Mono", style = "normal"  }
+bold = { family = "Victor Mono", style = "bold" }
+italic = { family = "Victor Mono", style = "italic" }
+bold_italic = { family = "Victor Mono", style = "Bold Italic" }
+size = 14.0
+
+
+
+[font.offset]
+x = 0
+y = 0
+
+# Cursor settings
+[cursor]
+style = { shape = "underline", blinking = "On"}
+vi_mode_style = { shape = "Beam" }
+blink_interval = 300
+
+
+
+# Scrolling
+[scrolling]
+history = 10000
+multiplier = 3
+
+# Shell
+[shell]
+program = "/usr/bin/fish"
+args = ["-l"]
+
+# Key bindings
+[[keyboard.bindings]]
+key = "V"
+mods = "Control|Shift"
+action = "Paste"
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Control|Shift"
+action = "Copy"
+
+[[keyboard.bindings]]
+key = "Insert"
+mods = "Shift"
+action = "PasteSelection"
+
+[[keyboard.bindings]]   
+key = "Key0"
+mods = "Control"
+action = "ResetFontSize"
+
+[[keyboard.bindings]]
+key = "Equals"
+# mods = "Control"
+action = "IncreaseFontSize"
+
+[[keyboard.bindings]]
+key = "Minus"
+mods = "Control"
+action = "DecreaseFontSize"
+
+[[keyboard.bindings]]
+key = "N"
+mods = "Control"
+action = "CreateNewWindow"
+
+# Mouse bindings
+[[mouse.bindings]]
+mouse = "Middle"
+action = "PasteSelection"
+
+# Environment variables
+[env]
+TERM = "xterm-256color"
+
+
+ 
