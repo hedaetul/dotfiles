@@ -18,7 +18,7 @@ Welcome to my dotfiles repository! Here you'll find my personalized configuratio
 
 [MPV](https://mpv.io) is a versatile media player that I customize for a streamlined viewing experience.
 
-![MPV Screenshot](https://via.placeholder.com/400x200?text=MPV+Player)
+![MPV Screenshot](./images/mpv.png)
 
 - **Location**: `mpv/`
 - **Features**:
@@ -31,7 +31,7 @@ Welcome to my dotfiles repository! Here you'll find my personalized configuratio
 
 [Neovim](https://neovim.io) is my go-to text editor, packed with plugins and settings to boost productivity.
 
-![Neovim Screenshot](https://via.placeholder.com/400x200?text=Neovim+Editor)
+![Neovim Screenshot](./images/nvim.png)
 
 - **Location**: `nvim/`
 - **Features**:
@@ -44,7 +44,7 @@ Welcome to my dotfiles repository! Here you'll find my personalized configuratio
 
 [Fish](https://fishshell.com) is a user-friendly command line shell that I configure to improve my terminal experience.
 
-![Fish Shell Screenshot](https://via.placeholder.com/400x200?text=Fish+Shell)
+![Fish Shell Screenshot](./images/fish.png)
 
 - **Location**: `fish/`
 - **Features**:
@@ -57,7 +57,7 @@ Welcome to my dotfiles repository! Here you'll find my personalized configuratio
 
 [Alacritty](https://alacritty.org) is a fast terminal emulator with a beautiful interface.
 
-![Alacritty Screenshot](https://via.placeholder.com/400x200?text=Alacritty+Terminal)
+![Alacritty Screenshot](./images/alacritty.png)
 
 - **Location**: `alacritty/`
 - **Features**:
@@ -70,7 +70,7 @@ Welcome to my dotfiles repository! Here you'll find my personalized configuratio
 
 My custom Alacritty theme, `hedaetul.toml`, enhances the terminal's visual appeal.
 
-![Alacritty Theme Preview](https://via.placeholder.com/400x200?text=Hedaetul+Theme)
+![Alacritty Theme Preview](./images/hedaetul.png)
 
 - **Location**: `alacritty/hedaetul.toml`
 
