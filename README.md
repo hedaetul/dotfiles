@@ -1,77 +1,88 @@
-# Alacritty Themes
+# 🌟 Hedaetul's Dotfiles
 
-A collection of colorschemes for easy configuration of the [Alacritty terminal emulator](https://github.com/alacritty/alacritty).
+Welcome to my dotfiles repository! Here you'll find my personalized configuration files for various tools and applications that I use in my development environment.
 
-## Installation
+---
 
-### Imports
+## 🚀 Contents
 
-Clone the repository, or download the theme of your choice:
+- [MPV](#mpv)
+- [Neovim](#neovim)
+- [Fish Shell](#fish-shell)
+- [Alacritty](#alacritty)
+- [Alacritty Theme](#alacritty-theme)
 
-```sh
-# We use Alacritty's default Linux config directory as our storage location here.
-mkdir -p ~/.config/alacritty/themes
-git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
-```
+---
 
-Add an import to your `alacritty.toml` (Replace `{theme}` with your desired colorscheme):
+## 🎥 MPV
 
-```toml
-import = [
-    "~/.config/alacritty/themes/themes/{theme}.toml"
-]
-```
+[MPV](https://mpv.io) is a versatile media player that I customize for a streamlined viewing experience.
 
-### Manual
+![MPV Screenshot](https://via.placeholder.com/400x200?text=MPV+Player)
 
-To manually include a colorscheme in an existing `alacritty.toml`, you just need to copy the entire content of the theme into the root level of your configuration file.
+- **Location**: `mpv/`
+- **Features**:
+  - Custom key bindings
+  - Enhanced video playback settings
 
-## Color Schemes
+---
 
-| Name | Colors |
-|------|--------|
-| **_wombat_**<br>[source](https://github.com/djoyner/iTerm2-wombat) | ![wombat](images/wombat.png) |
-| **_xterm_** | ![xterm](images/xterm.png) |
-| **_zenburn_**<br>[source](https://github.com/jnurmine/Zenburn) | ![zenburn](images/zenburn.png) |
+## ✨ Neovim
 
-## Image Styling Features
+[Neovim](https://neovim.io) is my go-to text editor, packed with plugins and settings to boost productivity.
 
-### Default Image
+![Neovim Screenshot](https://via.placeholder.com/400x200?text=Neovim+Editor)
 
-![default](images/default.png)
+- **Location**: `nvim/`
+- **Features**:
+  - Plugin management with `vim-plug`
+  - Custom mappings and themes
 
-### Image with Border
+---
 
-![border](images/border.png){: style="border: 2px solid black;" }
+## 🐚 Fish Shell
 
-### Image with Shadow
+[Fish](https://fishshell.com) is a user-friendly command line shell that I configure to improve my terminal experience.
 
-![shadow](images/shadow.png){: style="box-shadow: 5px 5px 15px rgba(0,0,0,0.3);" }
+![Fish Shell Screenshot](https://via.placeholder.com/400x200?text=Fish+Shell)
 
-### Image with Rounded Corners
+- **Location**: `fish/`
+- **Features**:
+  - Syntax highlighting
+  - Custom functions and aliases
 
-![rounded](images/rounded.png){: style="border-radius: 10px;" }
+---
 
-### Image with Custom Size
+## 💻 Alacritty
 
-![custom-size](images/custom-size.png){: style="width: 200px; height: auto;" }
+[Alacritty](https://alacritty.org) is a fast terminal emulator with a beautiful interface.
 
-## Contributing
+![Alacritty Screenshot](https://via.placeholder.com/400x200?text=Alacritty+Terminal)
 
-Bug reports and pull requests are welcome on GitHub at the [alacritty-theme](https://github.com/alacritty/alacritty-theme) repository.
+- **Location**: `alacritty/`
+- **Features**:
+  - GPU-accelerated rendering
+  - Customizable shortcuts
 
-To add a new theme, just create a Pull Request with the following changes:
+---
 
-- Add your theme to the `themes` directory with the `{theme}.toml` file format
-- Create a screenshot of your theme using the [`print_colors.sh`](./print_colors.sh) script
-- Add the screenshot to the `images` directory with the `{theme}.png` file format
-- Add your theme to the `README.md`, following alphabetical ordering
+## 🎨 Alacritty Theme
 
-## Maintainers
+My custom Alacritty theme, `hedaetul.toml`, enhances the terminal's visual appeal.
 
-- **indrajit** - *Author* - [eendroroy](https://github.com/eendroroy)
-- **Christian Dürr** - *Maintainer* - [chrisduerr](https://github.com/chrisduerr)
+![Alacritty Theme Preview](https://via.placeholder.com/400x200?text=Hedaetul+Theme)
 
-## License
+- **Location**: `alacritty/hedaetul.toml`
 
-The project is available as open source under the terms of the [Apache License, Version 2.0](LICENSE)
+---
+
+## 📦 Installation
+
+To set up these configurations on your machine, clone this repository and create symlinks to the appropriate locations:
+
+```bash
+git clone https://github.com/hedaetul/dotfiles.git
+cd dotfiles
+
+# Example for setting up Neovim configuration
+ln -s $(pwd)/nvim ~/.config/nvim
