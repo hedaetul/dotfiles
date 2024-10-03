@@ -20,7 +20,7 @@ Welcome to my dotfiles repository! Here you'll find my personalized configuratio
 
 ![MPV Screenshot](./images/mpv.png)
 
-- **Location**: `mpv/`
+- **Location**: `.config/mpv/`
 - **Features**:
   - Custom key bindings
   - Enhanced video playback settings
@@ -33,7 +33,7 @@ Welcome to my dotfiles repository! Here you'll find my personalized configuratio
 
 ![Neovim Screenshot](./images/nvim.png)
 
-- **Location**: `nvim/`
+- **Location**: `.config/nvim/`
 - **Features**:
   - Plugin management with `vim-plug`
   - Custom mappings and themes
@@ -46,7 +46,7 @@ Welcome to my dotfiles repository! Here you'll find my personalized configuratio
 
 ![Fish Shell Screenshot](./images/fish.png)
 
-- **Location**: `fish/`
+- **Location**: `.config/fish/`
 - **Features**:
   - Syntax highlighting
   - Custom functions and aliases
@@ -59,7 +59,7 @@ Welcome to my dotfiles repository! Here you'll find my personalized configuratio
 
 ![Alacritty Screenshot](./images/alacritty.png)
 
-- **Location**: `alacritty/`
+- **Location**: `.config/alacritty/`
 - **Features**:
   - GPU-accelerated rendering
   - Customizable shortcuts
@@ -72,7 +72,7 @@ My custom Alacritty theme, `hedaetul.toml`, enhances the terminal's visual appea
 
 ![Alacritty Theme Preview](./images/hedaetul.png)
 
-- **Location**: `alacritty/hedaetul.toml`
+- **Location**: `.config/alacritty/hedaetul.toml`
 
 ---
 
