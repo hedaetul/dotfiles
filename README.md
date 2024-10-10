@@ -11,6 +11,7 @@ Welcome to my dotfiles repository! Here you'll find my personalized configuratio
 - [Fish Shell](#fish-shell)
 - [Alacritty](#alacritty)
 - [Alacritty Theme](#alacritty-theme)
+- [Neofetch](#neofetch)
 
 ---
 
@@ -73,6 +74,19 @@ My custom Alacritty theme, `hedaetul.toml`, enhances the terminal's visual appea
 ![Alacritty Theme Preview](./images/hedaetul.png)
 
 - **Location**: `.config/alacritty/hedaetul.toml`
+
+---
+
+## 🖼 Neofetch
+
+[Neofetch](https://github.com/dylanaraps/neofetch) is a command-line system information tool that displays system stats in an aesthetic way.
+
+![Neofetch Screenshot](./images/neofetch.png)
+
+- **Location**: `.config/neofetch/config.conf`
+- **Features**:
+  - Custom ASCII art
+  - Personalized info display
 
 ---
 
