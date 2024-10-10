@@ -28,7 +28,7 @@ type -q nvim && set -gx EDITOR "nvim" || set -gx EDITOR "vim"
 ###       ADDING TO THE PATH            ###
 ###########################################
 set -e fish_user_paths
-set -U fish_user_paths $HOME/.local/bin $XDG_DATA_HOME/{cargo/bin,go/bin} $HOME/Applications $fish_user_paths
+set -U fish_user_paths $HOME/.local/bin $XDG_DATA_HOME/{cargo/bin,go/bin,nvm/v20.17.0/bin} $HOME/Applications $fish_user_paths
 
 
 ###########################################
@@ -88,12 +88,11 @@ set -g fish_pager_color_secondary_description $comment
 ###########################################
 ###               ALIASES               ###
 ###########################################
+abbr -ag vi nvim
+abbr -ag pn pnpm
 alias l="ls -Alh --color=auto --group-directories-first"
 alias ls="eza -al --color=auto --icons --group-directories-first"
-alias pn="pnpm"
-alias cursor="cursor-0.41.2x86_64.AppImage --no-sandbox"
-abbr -ag vi nvim
-
+alias cursor="/home/dev/Applications/cursor-0.41.3x86_64.AppImage --no-sandbox"
 
 ###########################################
 ###               PROMPT                ###
@@ -142,5 +141,4 @@ end
 ###########################################
 ### Run zoxide | The rust replacement for cd ###
 type -q zoxide && zoxide init fish | source
-
 
