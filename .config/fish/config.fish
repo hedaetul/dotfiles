@@ -28,7 +28,8 @@ type -q nvim && set -gx EDITOR "nvim" || set -gx EDITOR "vim"
 ###       ADDING TO THE PATH            ###
 ###########################################
 set -e fish_user_paths
-set -U fish_user_paths $HOME/.local/bin $XDG_DATA_HOME/{cargo/bin,go/bin,nvm/v20.17.0/bin} $HOME/Applications $fish_user_paths
+set -U fish_user_paths $HOME/.local/bin $XDG_DATA_HOME/{cargo/bin,go/bin,nvm/v20.18.0/bin} $HOME/Applications $fish_user_paths
+#set -U fish_user_paths $fish_user_paths $XDG_DATA_HOME/cargo/bin $XDG_DATA_HOME/go/bin $XDG_DATA_HOME/nvm/v20.17.0/bin $HOME/Applications
 
 
 ###########################################
