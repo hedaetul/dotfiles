@@ -1,0 +1,152 @@
+# Set mod key
+set $mod Mod4
+
+# Font
+font pango:Operator Mono 12
+
+# Turn off titlebars
+default_border pixel 2
+#default_floating_border none
+
+
+
+# Terminal
+bindsym $mod+Return exec alacritty
+
+# Kill window
+bindsym $mod+q kill
+
+# App launcher (rofi-wayland)
+bindsym $mod+d exec rofi -show drun
+
+# Focus movement
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# Move windows
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# Splits
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# Layouts
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Fullscreen
+bindsym $mod+f fullscreen toggle
+
+# Floating
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+# Resize Mode
+set $resize_mode "resize"
+mode "$resize_mode" {
+    bindsym j resize shrink width 10px
+    bindsym k resize grow height 10px
+    bindsym l resize shrink height 10px
+    bindsym semicolon resize grow width 10px
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "$resize_mode"
+
+# Workspaces with icons
+set $ws1 "<span font='18'></span>"
+set $ws2 "<span font='18'></span>"
+set $ws3 "<span font='18'>󰨞</span>"
+set $ws4 "<span font='18'></span>"
+set $ws5 "<span font='18'>󰎱</span>"
+set $ws6 "<span font='18'>󰎳</span>"
+set $ws7 "<span font='18'>󰭀󰎶</span>"
+set $ws8 "<span font='18'>󰎹</span>"
+set $ws9 "<span font='18'>󰎼</span>"
+set $ws10 "<span font='18'>󰽽</span>"
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# Reload and exit
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'Exit Sway?' -b 'Yes' 'swaymsg exit'"
+
+# Brightness (using brightnessctl)
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+
+# Volume control (using pactl)
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+
+# Lock screen
+bindsym $mod+Shift+x exec swaylock -f -c 000000
+
+# Screenshot
+#bindsym Print exec grim -g "$(slurp)" ~/Pictures/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy
+bindsym Print exec grim -g "$(slurp)" - | wl-copy
+bindsym shift+Print exec grim - | wl-copy
+bindsym alt+Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy
+
+
+# Output config (Wayland version of xrandr)
+output eDP-1 resolution 1920x1080 position 0,0 scale 1
+output HDMI-A-1 disable
+
+#floating rules
+#for_window [app_id="Alacritty"] floating enable, resize set 1080 720
+for_window [class="Emulator"] floating enable, resize set 960 1080
+bindsym $mod+Shift+t floating toggle
+
+# Window decorations (color scheme)
+client.focused          #458588 #282828 #ebdbb2 #458588 #458588
+client.focused_inactive #3c3836 #282828 #a89984 #3c3836 #3c3836
+client.unfocused        #3c3836 #282828 #a89984 #3c3836 #3c3836
+client.urgent           #cc241d #282828 #ebdbb2 #cc241d #cc241d
+client.placeholder      #3c3836 #282828 #ebdbb2 #3c3836 #3c3836
+
+# Start applications on   
+
+
+exec_always dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec_always systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec_always /usr/lib/polkit-1/polkitd
+exec_always bash -c 'eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg); export SSH_AUTH_SOCK=$SSH_AUTH_SOCK'
+exec_always ~/.config/sway/launch.sh
+
+# Autostart apps
+exec_always nm-applet
+exec_always swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'
+exec_always mako  # Notification daemon (Wayland alternative to dunst)
+exec_always swaybg -i ~/wallpapers/linux/linux_gruvbox.png --mode fill
+

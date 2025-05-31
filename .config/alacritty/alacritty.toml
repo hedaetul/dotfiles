@@ -1,24 +1,26 @@
 # Alacritty Configuration File
 # Import the theme
-import = [
-    "~/.config/alacritty/themes/themes/hedaetul.toml"
+general.import = [
+    # "~/.config/alacritty/themes/themes/gruvbox_dark.toml.toml"
+    "~/.config/alacritty/colors.toml"
 ]
 
 # Window settings
 [window]
 dimensions = { columns = 90, lines = 24 }
-padding = { x = 10, y = 10 }
-opacity = 0.90
+#padding = { x = 10, y = 10 }
+#opacity = 0.90
+#blur = true
 startup_mode = "Windowed"
 
 
 # Font settings
 [font]
-normal = { family = "Victor Mono", style = "normal"  }
-bold = { family = "Victor Mono", style = "bold" }
-italic = { family = "Victor Mono", style = "italic" }
-bold_italic = { family = "Victor Mono", style = "Bold Italic" }
-size = 14.0
+normal = { family = "Operator Mono", style = "Medium"  }
+bold = { family = "Operator Mono", style = "bold" }
+italic = { family = "Operator Mono", style = "italic" }
+bold_italic = { family = "Operator Mono", style = "Bold Italic" }
+size = 16.0
 
 
 
@@ -40,7 +42,7 @@ history = 10000
 multiplier = 3
 
 # Shell
-[shell]
+[terminal.shell]
 program = "/usr/bin/fish"
 args = ["-l"]
 
@@ -67,7 +69,7 @@ action = "ResetFontSize"
 
 [[keyboard.bindings]]
 key = "Equals"
-# mods = "Control"
+mods = "Control"
 action = "IncreaseFontSize"
 
 [[keyboard.bindings]]
@@ -77,7 +79,7 @@ action = "DecreaseFontSize"
 
 [[keyboard.bindings]]
 key = "N"
-mods = "Control"
+mods = "Control|Shift"
 action = "CreateNewWindow"
 
 # Mouse bindings

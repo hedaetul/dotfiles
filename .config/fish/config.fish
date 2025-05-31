@@ -28,7 +28,20 @@ type -q nvim && set -gx EDITOR "nvim" || set -gx EDITOR "vim"
 ###       ADDING TO THE PATH            ###
 ###########################################
 set -e fish_user_paths
-set -U fish_user_paths $HOME/.local/bin $XDG_DATA_HOME/{cargo/bin,go/bin,nvm/v20.18.0/bin} $HOME/Applications $fish_user_paths
+set -U fish_user_paths \
+    /home/linuxbrew/.linuxbrew/bin \
+    $HOME/.local/bin \
+    $XDG_DATA_HOME/{cargo/bin,go/bin,nvm/v22.16.0/bin} \
+    $HOME/Applications \
+    $HOME/Applications/flutter/bin \
+    $HOME/.pub-cache/bin \
+    $HOME/Android/Sdk/cmdline-tools/latest/bin \
+    $HOME/Android/Sdk/platform-tools \
+    $fish_user_paths 
+    
+  
+
+#set -U fish_user_paths $HOME/.local/bin $XDG_DATA_HOME/{cargo/bin,go/bin,nvm/v22.13.1/bin} $HOME/Applications $HOME/Applications/flutter/bin $HOME/.pub-cache/bin $fish_user_paths
 #set -U fish_user_paths $fish_user_paths $XDG_DATA_HOME/cargo/bin $XDG_DATA_HOME/go/bin $XDG_DATA_HOME/nvm/v20.17.0/bin $HOME/Applications
 
 
@@ -91,49 +104,67 @@ set -g fish_pager_color_secondary_description $comment
 ###########################################
 abbr -ag vi nvim
 abbr -ag pn pnpm
+abbr -ag ads android-studio
+abbr -ag py python
+
 alias l="ls -Alh --color=auto --group-directories-first"
 alias ls="eza -al --color=auto --icons --group-directories-first"
-alias cursor="/home/dev/Applications/cursor-0.41.3x86_64.AppImage --no-sandbox"
+alias cursor="~/Applications/cursor/Cursor-0.50.5-x86_64.AppImage"
+alias postman="~/Applications/Postman/Postman"
+alias firefox-nightly="/opt/firefox-nightly/firefox"
+alias zen-browser="flatpak run app.zen_browser.zen"
+alias discord="/opt/Discord/Discord"
+alias firefox="flatpak run org.mozilla.firefox"
+alias qbittorent="flatpak run org.qbittorrent.qBittorrent"
+alias android-studio="~/Applications/android-studio/bin/studio"
 
 ###########################################
 ###               PROMPT                ###
 ###########################################
-function fish_prompt --description 'Write out the prompt'
-	set -l last_pipestatus $pipestatus
-	set -lx __fish_last_status $status # Export for __fish_print_pipestatus.
+function fish_prompt --description 'Minimal, attractive prompt with error indicator'
+    # Store the last command status right at the start
+    set -l last_status $status
 
-	if test $__fish_last_status -eq 0
-		printf "%s%s  " (set_color $fish_color_host) (set_color normal)
-	else
-		printf "%s✘%s  " (set_color --bold $fish_color_status) (set_color normal)
-	end
+    # Username: changes color based on last command status
+    if test $last_status -ne 0
+        set_color --bold red
+        printf "王%s" (whoami)
+    else 
+        set_color --bold yellow
+        printf "王%s" (whoami)
+    end
+    set_color normal
 
-	# PWD
-	set_color $fish_color_cwd
-	echo -n (prompt_pwd)
-	set_color normal
+    # ' in ' in gray
+    set_color brgrey
+    printf " in "
+    set_color normal
 
-	# Git prompt
-	# printf '%s ' (fish_vcs_prompt)
-	if test (fish_vcs_prompt)
-		set_color f2510c
-		printf ' [ %s] ' (git branch --show-current)
-		set_color normal
-	else
-		echo -n ' '
-	end
+    # Directory: bold, underlined blue
+    set_color --bold --underline blue
+    printf "%s" (prompt_pwd)
+    set_color normal
 
-	set -l status_color (set_color $fish_color_status)
-	set -l statusb_color (set_color --bold $fish_color_status)
-	set -l prompt_status (__fish_print_pipestatus "[" "]" "|" "$status_color" "$statusb_color" $last_pipestatus)
-	echo -n $prompt_status
-	set_color normal
+    # Only show git section in square brackets if in a git repo
+    if test (fish_vcs_prompt)
+        set_color brgrey
+        printf " on "
+        set_color red
+        printf "[ %s]" (git branch --show-current)
+        set_color normal
+        printf " "
+    end
 
-	if test $__fish_last_status -eq 0
-		printf ""
-	else
-		printf " "
-	end
+    # Newline and a stylish symbol for the prompt
+    printf "\n"
+    if test $last_status -ne 0
+        set_color brred
+        printf "󰡜  ︰"
+    else
+        set_color green
+        printf "󰡜  ︰"
+    end
+    set_color normal
 end
 
 

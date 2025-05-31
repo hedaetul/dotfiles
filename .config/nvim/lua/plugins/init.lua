@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+    event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
 
@@ -12,6 +12,10 @@ return {
       require "configs.lspconfig"
     end,
   },
+
+  {
+     'wakatime/vim-wakatime', lazy = false
+  }
 
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",

@@ -1,0 +1,19 @@
+configuration {
+    font: "JetBrainsMono Nerd Font 10";
+    location: 0;
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    drun-display-format: "{icon} {name}";
+}
+
+* {
+    background:       #282828;
+    background-alt:   #3c3836;
+    foreground:       #ebdbb2;
+    selected:         #458588;
+    active:           #98971a;
+    urgent:           #cc241d;
+    border-color:     #458588;
+    border:           2;
+    padding:          5;
+}
